@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Setup | GradeBoost</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<section class="onboarding-page">
+  <form method="POST" class="onboarding-card" id="onboardingForm">
+
+    <div class="question active">
+      <h1>Let’s get to know you 👋</h1>
+      <p>Are you in school or university?</p>
+
+      <select name="education_level" required>
+        <option value="">Choose one</option>
+        <option value="High School">High School</option>
+        <option value="College">College</option>
+        <option value="University">University</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button type="button" class="main-btn next-btn">Next</button>
+    </div>
+
+    <div class="question">
+      <h1>What grade or year are you in?</h1>
+      <p>This helps GradeBoost understand your level.</p>
+
+      <input type="text" name="grade_or_year" placeholder="Example: Grade 11 or 1st Year" required>
+
+      <button type="button" class="main-btn next-btn">Next</button>
+    </div>
+
+    <div class="question">
+      <h1>What subjects do you take?</h1>
+      <p>Enter all your subjects separated by commas.</p>
+
+      <input
+        type="text"
+        name="subjects"
+        placeholder="Example: Math, Physics, English, Life Science"
+        required
+      > 
+
+      <button type="button" class="main-btn next-btn">Next</button>
+    </div>
+
+    <div class="question">
+      <h1>What subject needs the most focus?</h1>
+      <p>Pick the one you want to improve first.</p>
+
+      <select name="main_subject" required>
+        <option value="">Choose subject</option>
+        <option value="Math">Math</option>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="English">English</option>
+        <option value="Life Science">Life Science</option>
+        <option value="Computer Studies">Computer Studies</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button type="button" class="main-btn next-btn">Next</button>
+    </div>
+
+    <div class="question">
+      <h1>What do you struggle with most?</h1>
+
+      <select name="biggest_struggle" required>
+        <option value="">Choose one</option>
+        <option value="Understanding work">Understanding the work</option>
+        <option value="Studying consistently">Studying consistently</option>
+        <option value="Exam pressure">Exam pressure</option>
+        <option value="Time management">Time management</option>
+        <option value="Homework">Homework</option>
+      </select>
+
+      <button type="button" class="main-btn next-btn">Next</button>
+    </div>
+
+    <div class="question">
+      <h1>What is your main goal?</h1>
+
+      <select name="study_goal" required>
+        <option value="">Choose goal</option>
+        <option value="Pass comfortably">Pass comfortably</option>
+        <option value="Improve marks">Improve my marks</option>
+        <option value="Get distinctions">Get distinctions</option>
+        <option value="Prepare for exams">Prepare for exams</option>
+      </select>
+
+      <button type="button" class="main-btn next-btn">Next</button>
+    </div>
+
+    <div class="question">
+      <h1>How much can you study daily?</h1>
+
+      <select name="study_time" required>
+        <option value="">Choose time</option>
+        <option value="15-30 minutes">15-30 minutes</option>
+        <option value="30-60 minutes">30-60 minutes</option>
+        <option value="1-2 hours">1-2 hours</option>
+        <option value="2+ hours">2+ hours</option>
+      </select>
+
+      <button type="submit" class="main-btn">Finish Setup →</button>
+    </div>
+
+  </form>
+</section>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Study Plan | GradeBoost</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<section class="study-plan-page">
+
+  <nav class="study-plan-nav">
+    <h2>grade<span>boost</span></h2>
+    <a href="{{ url_for('dashboard') }}" class="outline-btn">Back to Dashboard</a>
+  </nav>
+
+  <div class="study-plan-hero">
+    <div>
+      <p class="dash-badge">Smart Study Planner</p>
+      <h1>Your personal study plan is ready 🚀</h1>
+      <p>Keep going. Small steps every day turn into big results.</p>
+    </div>
+  </div>
+
+  <div class="study-plan-card ai-response-box">
+  <div class="ai-response-header">
+    <div class="ai-icon">🤖</div>
+    <div>
+      <h2>Your AI Study Plan</h2>
+      <p>Generated personally from your GradeBoost profile.</p>
+    </div>
+  </div>
+
+  <div class="ai-plan-text markdown-content">
+  {{ plan_text | safe }}
+  </div>
+</div>
+</section>
+
+</body>
+</html>

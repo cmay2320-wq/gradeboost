@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment Breakdown | GradeBoost</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<section class="study-plan-page">
+
+  <nav class="study-plan-nav">
+    <h2>grade<span>boost</span></h2>
+    <a href="{{ url_for('assignments') }}" class="outline-btn">Back to Assignments</a>
+  </nav>
+
+  <div class="study-plan-hero">
+    <div>
+      <p class="dash-badge">AI Assignment Breakdown</p>
+      <h1>{{ assignment[2] }} 📚</h1>
+      <p>GradeBoost broke this assignment into easier steps for you.</p>
+    </div>
+  </div>
+
+  <div class="study-plan-card ai-response-box">
+    <div class="ai-response-header">
+      <div class="ai-icon">🤖</div>
+      <div>
+        <h2>Your Assignment Plan</h2>
+        <p>Generated from your profile and this assignment.</p>
+      </div>
+    </div>
+
+    <div class="ai-plan-text markdown-content">
+      {{ breakdown | safe }}
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

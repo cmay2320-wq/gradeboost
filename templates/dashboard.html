@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | GradeBoost</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<section class="app-dashboard">
+
+  <aside class="dash-sidebar">
+    <h2>grade<span>boost</span></h2>
+
+    <a class="active">🏠 Dashboard</a>
+    <a>📚 Subjects</a>
+    <a>🧠 AI Tutor</a>
+    <a href="{{ url_for('assignments') }}">📝 Assignments</a>
+    <a href="{{ url_for('study_plan') }}">📅 Study Plan</a>
+    <a>📊 Progress</a>
+
+    <a href="{{ url_for('logout') }}" class="logout-link">🚪 Logout</a>
+  </aside>
+
+  <main class="dash-main">
+
+    <div class="dash-top">
+      <div>
+        <p class="dash-badge">Welcome back</p>
+        <h1>Hello, {{ session["full_name"] }} 👋</h1>
+        <p>Your dashboard is personalized from your setup answers.</p>
+      </div>
+
+      <button class="main-btn">Ask AI Tutor</button>
+    </div>
+
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <p>Main Focus</p>
+        <h3>{{ profile[5] }}</h3>
+      </div>
+
+      <div class="dash-stat-card">
+        <p>Goal</p>
+        <h3>{{ profile[7] }}</h3>
+      </div>
+
+      <div class="dash-stat-card">
+        <p>Daily Study Time</p>
+        <h3>{{ profile[8] }}</h3>
+      </div>
+    </div>
+
+    <div class="dash-layout">
+
+      <div class="dash-card large-card">
+        <h2>📅 Today’s Plan</h2>
+        <ul class="plan-list">
+          <li>Review your focus subject: <b>{{ profile[5] }}</b></li>
+          <li>Spend <b>{{ profile[8] }}</b> studying today</li>
+          <li>Do practice questions for your weakest area</li>
+          <li>End with a quick summary of what you learned</li>
+        </ul>
+      </div>
+
+      <div class="dash-card ai-card-dashboard">
+        <h2>🤖 AI Recommendation</h2>
+        <p>
+          Based on your struggle with <b>{{ profile[6] }}</b>,
+          GradeBoost will soon use Gemini AI to create smarter study advice for you.
+        </p>
+      </div>
+
+      <div class="dash-card">
+        <h2>📚 Your Subjects</h2>
+        <p>{{ profile[4] }}</p>
+      </div>
+
+      <div class="dash-card">
+        <h2>🎯 Weekly Goal</h2>
+        <p>
+          Focus on improving <b>{{ profile[5] }}</b> and stay consistent with your daily study time.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+</body>
+</html>

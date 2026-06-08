@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignments | GradeBoost</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<section class="assignments-page">
+
+  <nav class="assignments-nav">
+    <h2>grade<span>boost</span></h2>
+    <a href="{{ url_for('dashboard') }}" class="outline-btn">Back to Dashboard</a>
+  </nav>
+
+  <div class="assignments-hero">
+    <div>
+      <p class="dash-badge">Homework & Assignment Tracker</p>
+      <h1>Stay ahead of every deadline 📚</h1>
+      <p>Add homework, assignments, projects, tests, and track what needs to be done.</p>
+    </div>
+  </div>
+
+  <div class="deadline-alerts">
+    <h2>Deadline Alerts</h2>
+
+    {% set has_alerts = false %}
+
+    {% for item in assignments %}
+      {% if item[8] <= 2 and item[6] != "Completed" %}
+        <div class="deadline-alert urgent-alert">
+          ⚠️ {{ item[2] }} is due very soon.
+        </div>
+      {% elif item[8] <= 7 and item[6] != "Completed" %}
+        <div class="deadline-alert warning-alert">
+          ⏳ {{ item[2] }} is due this week.
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="assignment-layout">
+
+    <form method="POST" class="assignment-form">
+      <h2>Add Assignment</h2>
+
+      <label>Subject</label>
+      <input type="text" name="subject" placeholder="Example: Math" required>
+
+      <label>Title</label>
+      <input type="text" name="title" placeholder="Example: Algebra Worksheet" required>
+
+      <label>Description</label>
+      <textarea name="description" placeholder="Add details about the task"></textarea>
+
+      <label>Due Date</label>
+      <input type="date" name="due_date" required>
+
+      <label>Priority</label>
+      <select name="priority" required>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Urgent">Urgent</option>
+      </select>
+
+      <button type="submit" class="main-btn">Add Assignment →</button>
+    </form>
+
+    <div class="assignment-list">
+  <h2>Your Assignments</h2>
+
+  {% if assignments %}
+    {% for item in assignments %}
+      <div class="assignment-card">
+
+        <div class="assignment-top">
+          <div>
+            <span class="priority {{ item[5].lower() }}">{{ item[5] }}</span>
+            <h3>{{ item[2] }}</h3>
+            <p>{{ item[1] }}</p>
+          </div>
+
+          <div class="due-date">
+            Due<br>
+            <strong>{{ item[4] }}</strong>
+          </div>
+        </div>
+
+        <p class="assignment-desc">{{ item[3] }}</p>
+
+        <div class="assignment-bottom">
+          <span>Status: {{ item[6] }}</span>
+          <span>{{ item[7] }}% complete</span>
+        </div>
+
+        <div class="progress-track">
+          <div
+            class="progress-fill"
+            data-progress="{{ item[7] }}"
+          ></div>
+        </div>
+
+        <div class="assignment-actions">
+          <a href="{{ url_for('update_assignment_progress', assignment_id=item[0], action='decrease') }}">
+            -10%
+          </a>
+
+          <a href="{{ url_for('update_assignment_progress', assignment_id=item[0], action='increase') }}">
+            +10%
+          </a>
+
+          <a href="{{ url_for('complete_assignment', assignment_id=item[0]) }}">
+            Complete
+          </a>
+
+          <a href="{{ url_for('assignment_breakdown', assignment_id=item[0]) }}">
+            AI Breakdown
+          </a>
+
+          <a href="{{ url_for('delete_assignment', assignment_id=item[0]) }}" class="delete-action">
+            Delete
+          </a>
+        </div>
+
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty-box">
+      <h3>No assignments yet</h3>
+      <p>Add your first homework or assignment to start tracking.</p>
+    </div>
+  {% endif %}
+</div> 
+
+
+   
+
+</section>
+
+</body>
+</html>

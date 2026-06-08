@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>GradeBoost | Study Smarter</title>
+
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}"
+  />
+</head>
+
+<body>
+
+  <main class="hero-page">
+
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+
+    <nav class="navbar">
+
+      <a href="/" class="logo">
+
+        <img
+          src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="GradeBoost Logo"
+          class="logo-img"
+        />
+
+        <div>
+          grade<span>boost</span>
+        </div>
+
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li><a href="#">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/contact">Contact</a></li>
+
+      </ul>
+
+      <div class="nav-buttons">
+
+        <button class="login-btn"onclick="window.location.href='/login'">
+          Log in
+        </button>
+
+        <button class="main-btn" onclick="window.location.href='/create-account'">
+          Start Free →
+        </button>
+
+      </div>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+    </nav>
+
+    <section class="hero">
+
+      <div class="hero-text reveal">
+
+        <div class="badge">
+          ⚡ Built for smarter studying
+        </div>
+
+        <h1>
+          Turn study stress into
+          <span class="blue-green">
+            top results.
+          </span>
+        </h1>
+
+        <p>
+          GradeBoost helps learners study better with AI explanations,
+          smart revision plans, progress tracking, and subject support
+          in one clean app.
+        </p>
+
+        <div class="hero-actions">
+
+          <button class="main-btn" onclick="window.location.href='/create-account'"><
+            Boost My Grades →
+          </button>
+
+          <button class="outline-btn">
+            View Demo ▶
+          </button>
+
+        </div>
+
+        <div class="trust">
+
+          <div class="faces">
+
+            <div class="face">👩</div>
+            <div class="face">👨</div>
+            <div class="face">🧑</div>
+            <div class="face">🎓</div>
+
+          </div>
+
+          <p>
+            Trusted by students who want better marks.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="visual reveal">
+
+        <div class="phone-card">
+
+          <div class="phone-top">
+
+            <div class="profile">
+
+              <div class="profile-pic">
+                G
+              </div>
+
+              <div>
+                <p>Welcome back</p>
+                <strong>Student</strong>
+              </div>
+
+            </div>
+
+            <div class="bell">
+              🔔
+            </div>
+
+          </div>
+
+          <h2>
+            Your study dashboard
+          </h2>
+
+          <div class="progress-card">
+
+            <p>Overall Progress</p>
+
+            <strong>86%</strong>
+
+            <p>
+              You are improving fast 🚀
+            </p>
+
+            <div class="bar">
+              <span></span>
+            </div>
+
+          </div>
+
+          <div class="task">
+
+            <div>
+              <h3>Math Revision</h3>
+              <p>Complete 10 questions</p>
+            </div>
+
+            <div class="check">
+              ✓
+            </div>
+
+          </div>
+
+          <div class="task">
+
+            <div>
+              <h3>Physics Notes</h3>
+              <p>Review Newton’s Laws</p>
+            </div>
+
+            <div class="check">
+              ✓
+            </div>
+
+          </div>
+
+          <div class="task">
+
+            <div>
+              <h3>AI Tutor</h3>
+              <p>Ask anything you are stuck on</p>
+            </div>
+
+            <div class="check">
+              →
+            </div>
+
+          </div>
+
+        </div>
+
+       
+         
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="features" class="features">
+
+      <div class="feature reveal">
+
+        <div class="feature-icon">
+          🤖
+        </div>
+
+        <h3>
+          AI Explanations
+        </h3>
+
+        <p>
+          Understand questions step-by-step without feeling lost.
+        </p>
+
+      </div>
+
+      <div class="feature reveal">
+
+        <div class="feature-icon">
+          📅
+        </div>
+
+        <h3>
+          Smart Study Plans
+        </h3>
+
+        <p>
+          Get a plan based on your goals, subjects, and weak spots.
+        </p>
+
+      </div>
+
+      <div class="feature reveal">
+
+        <div class="feature-icon">
+          📊
+        </div>
+
+        <h3>
+          Progress Tracking
+        </h3>
+
+        <p>
+          See your scores, study time, streaks, and improvement.
+        </p>
+
+      </div>
+
+      <div class="feature reveal">
+
+        <div class="feature-icon">
+          🎯
+        </div>
+
+        <h3>
+          Grade Goals
+        </h3>
+
+        <p>
+          Stay focused on the marks you want and build better habits.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script
+    src="{{ url_for('static', filename='js/script.js') }}"
+  ></script>
+
+</body>
+</html>
